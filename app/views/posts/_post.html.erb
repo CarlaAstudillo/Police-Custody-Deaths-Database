@@ -1,5 +1,5 @@
 
-<span class="pull-right"><%= simple_format post.caption %></span>
+<span class="pull-right"></span>
   <h2><%= link_to post.title, post %></h2>
 
 
@@ -9,19 +9,15 @@
 
 </div>
 
-<p style="margin: 0;font-size: 12px;padding-top: 0.5em;width: 100%;font-weight: bold;text-align: right;display: inline-block;"><%= simple_format post.caption %></p>
+<p style="margin: 0;font-size: 12px;padding-top: 0.5em;width: 100%;font-weight: bold;text-align: right;display: inline-block;"></p>
   
 
 
 
 
 
-<% if !post.quote.blank? -%>
 <blockquote>
-  <%= link_to post.quote, post %>
   
 </blockquote>
-<% end %>
-
   
 
