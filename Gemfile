@@ -30,9 +30,7 @@ gem 'shareable'
 gem 'will_paginate', '~> 3.0'
 
 
-#Build authentication system with Devise
 
-gem 'devise'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

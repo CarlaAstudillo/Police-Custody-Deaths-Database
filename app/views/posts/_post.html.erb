@@ -5,22 +5,15 @@
 
 <p>
 
-<% if !post.image.blank? and post.kind == "Video" %>
 	<div class="video-responsive">
- <iframe width="100%" height="100%" frameborder="0" allowfullscreen src="<%= post.image %>"></iframe>
+
 </div>
 
 <p style="margin: 0;font-size: 12px;padding-top: 0.5em;width: 100%;font-weight: bold;text-align: right;display: inline-block;"><%= simple_format post.caption %></p>
   
 
 
-<% elsif !post.image.blank? and post.kind == "Image" %>
-	
-  <%= image_tag post.image, style: "width:100%"%>
- 
 
-
-<% end %>
 
 
 <% if !post.quote.blank? -%>
