@@ -1,15 +1,15 @@
 
 <span class="pull-right"><%= simple_format post.police_agency %></span>
-  <h2><%= link_to post.name, post %></h2>
-
-  	<table>
+  <div class="name_head"><%= link_to post.name, post %></div>
+  <span class="subtitle"><%= simple_format post.manner_of_death %></span>
+<div class="table-responsive">
+  	<table class="table">
 <tr>
   <th>Died on</th>
   <th>Where event causing death occurred</th> 
   <th>Gender</th>
   <th>Born on</th>
   <th>Race</th>
-  <th>Manner of Death</th>
   <th>Cause of Death</th>
   <th>Offenses</th>
 </tr>
@@ -19,12 +19,12 @@
   <td class="gender"><%= simple_format post.gender %></td>
   <td class="date_of_birth"><%= simple_format post.date_of_birth %></td> 
   <td class="race"><%= simple_format post.race %></td>
-  <td class="manner_of_death"><%= simple_format post.manner_of_death %></td> 
   <td class="cause_of_death"><%= simple_format post.cause_of_death %></td>
   <td class="offenses"><%= simple_format post.offenses %></td> 
  
 </tr>
 </table>
+</div>
     
 
   
