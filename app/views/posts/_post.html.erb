@@ -1,23 +1,31 @@
 
-<span class="pull-right"></span>
-  <h2><%= link_to post.title, post %></h2>
+<span class="pull-right"><%= simple_format post.police_agency %></span>
+  <h2><%= link_to post.name, post %></h2>
 
+  	<table>
+<tr>
+  <th>Died on</th>
+  <th>Where event causing death occurred</th> 
+  <th>Gender</th>
+  <th>Born on</th>
+  <th>Race</th>
+  <th>Manner of Death</th>
+  <th>Cause of Death</th>
+  <th>Offenses</th>
+</tr>
+<tr>
+  <td class="date_of_date"><%= simple_format post.date_of_date %></td>
+  <td class="place"><%= simple_format post.place %></td> 
+  <td class="gender"><%= simple_format post.gender %></td>
+  <td class="date_of_birth"><%= simple_format post.date_of_birth %></td> 
+  <td class="race"><%= simple_format post.race %></td>
+  <td class="manner_of_death"><%= simple_format post.manner_of_death %></td> 
+  <td class="cause_of_death"><%= simple_format post.cause_of_death %></td>
+  <td class="offenses"><%= simple_format post.offenses %></td> 
+ 
+</tr>
+</table>
+    
 
-<p>
-
-	<div class="video-responsive">
-
-</div>
-
-<p style="margin: 0;font-size: 12px;padding-top: 0.5em;width: 100%;font-weight: bold;text-align: right;display: inline-block;"></p>
-  
-
-
-
-
-
-<blockquote>
-  
-</blockquote>
   
 

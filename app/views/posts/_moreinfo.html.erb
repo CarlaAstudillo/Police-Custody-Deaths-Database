@@ -1,9 +1,77 @@
-<%= simple_format post.content %>
+<% if !post.reason_for_initial.blank? %>
+	<p><b>Reason for Initial Contact:</b> <%= simple_format post.reason_for_initial %></p>
+ 
+  <% end %>
+
+
+
+<% if !post.narrative.blank? %>
+
+  <p><b>Any extra narrative:</b> <%= simple_format post.narrative %></p>
+
+  <% end %>
+
+  <% if !post.threats.blank? %>
+  <p><b>At the time, did the descendent...</b> <%= simple_format post.threats %></p>
+  <% end %>
+
+  <% if !post.weapon.blank? %>
+  <p><b>Did the decedent display or use a weapon?</b> <%= simple_format post.weapon %></p>
+  <% end %>
+
+  <% if !post.attack.blank? %>
+  <p><b>At any time, did the decedent...</b> <%= simple_format post.attack %></p>
+  <% end %>
+
+  <% if !post.law_action.blank? %>
+  <p><b>At any time, did law enforcement personnel...</b> <%= simple_format post.law_action %></p>
+   <% end %>
+
+ <% if !post.law_weapons.blank? %>
+  <p><b>At any time during the incident, did law enforcement use any of the following weapons or restraint methods?</b> <%= simple_format post.law_weapons %></p>
+  <% end %>
+
+ <% if !post.fatal_injury.blank? %>
+  <p><b>Did the decedent sustain a fatal injury? If so, who caused it?</b> <%= simple_format post.fatal_injury %></p>
+  <% end %>
+
+   <% if !post.death_weapons.blank? %>
+  <p><b>If a weapon caused the death, what type of weapon?</b> <%= simple_format post.death_weapons %></p>
+  <% end %>
+
+   <% if !post.final_death_place.blank? %>
+  <p><b>Where did the death occur?</b> <%= simple_format post.final_death_place %></p>
+  <% end %>
+
+ <% if !post.autopsy.blank? %>
+  <p><b>Did the autopsy or medical evaluation indicate the presence of drugs or alcohol?</b> <%= simple_format post.autopsy %></p>
+  <% end %>
+
+   <% if !post.notes.blank? %>
+  <p><b>NOTES</b> <%= simple_format post.notes %></p>
+  <% end %>
+
+   <% if !post.death_location_category.blank? %>
+  <p><b>What location category best describes where the event causing the death occurred?</b> <%= simple_format post.death_location_category %></p>
+  <% end %>
+
+   <% if !post.death_determined.blank? %>
+  <p><b>How was the cause of death determined?</b> <%= simple_format post.death_determined %></p>
+  <% end %>
+
+   <% if !post.deceased_crime.blank? %>
+  <p><b>Did the deceased commit or allegedly commit any criminal offenses in the events leading up to the death?</b> <%= simple_format post.deceased_crime %></p>
+  <% end %>
+
+   <% if !post.link_to_press.blank? %>
+   <p><b>Link to press coverage:</b> <%= simple_format post.link_to_press %></p>
+   <% end %>
+  
+  
 
 </p>
-<p class="text-muted"> 
-<small>Posted on <%= post.created_at.to_formatted_s(:long_ordinal) %></small>
-</p>
 
 
-<%= render_shareable :buttons=> ['twitter'], :via=> 'njdotcom', :text=> post.title + ' #Appproject' %>
+<%= render_shareable :buttons=> ['twitter'], :via=> 'njdotcom', :text=> post.name + ' #Appproject' %>
+
+

@@ -11,13 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404191608) do
+ActiveRecord::Schema.define(version: 20140519140329) do
 
   create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "date_of_date"
+    t.string   "police_agency"
+    t.string   "place"
+    t.string   "gender"
+    t.string   "date_of_birth"
+    t.string   "race"
+    t.string   "manner_of_death"
+    t.string   "cause_of_death"
+    t.string   "offenses"
+    t.string   "reason_for_initial"
+    t.string   "narrative"
+    t.string   "threats"
+    t.string   "weapon"
+    t.string   "attack"
+    t.string   "law_action"
+    t.string   "law_weapons"
+    t.string   "fatal_injury"
+    t.string   "death_weapons"
+    t.string   "final_death_place"
+    t.string   "autopsy"
+    t.string   "notes"
+    t.string   "death_location_category"
+    t.string   "death_determined"
+    t.string   "deceased_crime"
+    t.string   "link_to_press"
   end
 
 end
