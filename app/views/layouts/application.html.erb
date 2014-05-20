@@ -5,7 +5,10 @@
 	  
 	 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
     <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
+    
+    
    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1-rc2/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700|Oswald' rel='stylesheet' type='text/css'>
@@ -58,12 +61,10 @@
     
       
 
-  <div id="content">
    
   
-    
 	<%= yield %>
-</div>
+
 
 
   <%= link_to "Back to Top", @post, anchor: "anchor", style: "float:right" %>
@@ -81,18 +82,43 @@
 
 
 
-     $(window).load(function(){
-      var $container = $('#content');
-$container.isotope({
+     $( function() {
 
+  // init Isotope
+  var $container = $('.isotope').isotope({
+    layoutMode: 'vertical',
+    getSortData: {
+      name: '.name',
+      symbol: '.symbol',
+      gender: '.gender',
+      date_of_birth: '.date_of_birth',
+      race: '.race',
+      cause_of_death: '.cause_of_death',
+      offenses: '.offenses',
+      number: '.number parseInt',
+      category: '.category',
+      weight: function( itemElem ) {
+        var weight = $( itemElem ).find('.weight').text();
+        return parseFloat( weight.replace( /[\(\)]/g, '') );
+      }
+    }
+  });
 
-  itemSelector: '.item',
-  layoutMode: 'vertical',
-vertical: {
-  horizontalAlignment: 0.5,
-}
- 
-});
+  // bind sort button click
+  $('#sorts').on( 'click', 'button', function() {
+    var sortValue = $(this).attr('data-sort-value');
+    $container.isotope({ sortBy: sortValue });
+  });
+
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+  
 });
 
 </script>

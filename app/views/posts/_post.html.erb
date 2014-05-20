@@ -1,31 +1,20 @@
+<li>
 
-<span class="pull-right"><%= simple_format post.police_agency %></span>
-  <div class="name_head"><%= link_to post.name, post %></div>
-  <span class="subtitle"><%= simple_format post.manner_of_death %></span>
-<div class="table-responsive">
-  	<table class="table">
-<tr>
-  <th>Died on</th>
-  <th>Where event causing death occurred</th> 
-  <th>Gender</th>
-  <th>Born on</th>
-  <th>Race</th>
-  <th>Cause of Death</th>
-  <th>Offenses</th>
-</tr>
-<tr>
-  <td class="date_of_date"><%= simple_format post.date_of_date %></td>
-  <td class="place"><%= simple_format post.place %></td> 
-  <td class="gender"><%= simple_format post.gender %></td>
-  <td class="date_of_birth"><%= simple_format post.date_of_birth %></td> 
-  <td class="race"><%= simple_format post.race %></td>
-  <td class="cause_of_death"><%= simple_format post.cause_of_death %></td>
-  <td class="offenses"><%= simple_format post.offenses %></td> 
- 
-</tr>
-</table>
-</div>
+   <div class="name"><%= simple_format post.name %></div>
+    <div class="symbol"><%= simple_format post.police_agency %></div>
+    <div class="number"><%= simple_format post.manner_of_death %></div>
+    <div class="weight"><%= simple_format post.date_of_date %></div>
+    <div class="category"><%= simple_format post.place %></div>
+    <div class="gender"><%= simple_format post.gender %></div>
+  <div class="date_of_birth"><%= simple_format post.date_of_birth %></div>
+    <div class="race"><%= simple_format post.race %></div>
+  <div class="cause_of_death"><%= simple_format post.cause_of_death %></div>
+  <div class="offenses"><%= simple_format post.offenses %></div>
+
+
+ </li>
+
+
     
 
-  
-
+ 

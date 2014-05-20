@@ -6,17 +6,53 @@
   
 
   </head>
+  <body>
+<h1>Isotope - vertical table-like</h1>
 
-<% @posts.each do |post| %>
+<div id="sorts" class="button-group">
+  <button class="button is-checked" data-sort-value="original-order">original order</button>
+  <button class="button" data-sort-value="name">Name</button>
+  <button class="button" data-sort-value="symbol">Police Agency</button>
+  <button class="button" data-sort-value="number">Manner of Death</button>
+  <button class="button" data-sort-value="weight">Date of Death</button>
+  <button class="button" data-sort-value="category">Place</button>
+  <button class="button" data-sort-value="gender">gender</button>
+  <button class="button" data-sort-value="date_of_birth">dob</button>
+  <button class="button" data-sort-value="race">race</button>
+  <button class="button" data-sort-value="cause_of_death">cause of death</button>
+   <button class="button" data-sort-value="offenses">offenses</button>
 
-<div class="item">
-<%= render 'posts/post', post:post %>
 </div>
 
 
+<ul class="isotope table-like">
+	<li>
+
+   <div class="head">Name</div>
+    <div class="head">Police Agency</div>
+    <div class="head">Manner of Death</div>
+    <div class="head">Date of Death</div>
+    <div class="head">Place</div>
+    <div class="head">Gender</div>
+  <div class="head">Date of Birth</div>
+    <div class="head">Race</div>
+  <div class="head">Cause of Death</div>
+  <div class="head">Offenses</div>
+
+
+  	<% @posts.each do |post| %>
+    
+  
+    
+    <%= render 'posts/post', post:post %>
+
+ 
+</li>
+  
+
 
 <% end %>
-
+</ul>
 
 
 <%= will_paginate @posts %>
