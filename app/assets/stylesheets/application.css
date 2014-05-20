@@ -194,6 +194,18 @@ float:left;
 
 .table-like div { width: 10%; }
 
+.table-like .name a { font: 700 23px/0.5 'Oswald', Helvetica, sans-serif;
+
+text-transform: uppercase;
+margin-bottom: 10px;
+
+line-height: 1.1;
+color: #919191; }
+
+.table-like .number { color: #AD1D1D;
+  font-weight: bold;
+
+ }
 .head {
   font-weight: bolder;
 }
