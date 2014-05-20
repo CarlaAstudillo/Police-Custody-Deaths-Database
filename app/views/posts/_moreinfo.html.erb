@@ -1,3 +1,36 @@
+
+<span class="pull-right"><%= simple_format post.police_agency %></span>
+
+    <table>
+  <div class="name_head"><%= link_to post.name, post %></div>
+  <span class="subtitle"><%= simple_format post.manner_of_death %></span>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+<tr>
+  <th>Died on</th>
+  <th>Where event causing death occurred</th> 
+  <th>Gender</th>
+  <th>Born on</th>
+  <th>Race</th>
+  <th>Cause of Death</th>
+  <th>Offenses</th>
+</tr>
+</thead>
+<tr>
+<td data-title="Died"><%= simple_format post.date_of_date %></td>
+  <td data-title="Place"><%= simple_format post.place %></td> 
+  <td data-title="Gender"><%= simple_format post.gender %></td>
+  <td data-title="Born on"><%= simple_format post.date_of_birth %></td> 
+  <td data-title="Race"><%= simple_format post.race %></td> 
+  <td data-title="Cause of Death"><%= simple_format post.cause_of_death %></td>
+  <td data-title="Offenses"><%= simple_format post.offenses %></td> 
+ 
+</tr>
+</table>
+
+
+
 <% if !post.reason_for_initial.blank? %>
 	<p><b>Reason for Initial Contact:</b> <%= simple_format post.reason_for_initial %></p>
  
@@ -73,5 +106,5 @@
 
 
 <%= render_shareable :buttons=> ['twitter'], :via=> 'njdotcom', :text=> post.name + ' #Appproject' %>
-
+</div>
 
