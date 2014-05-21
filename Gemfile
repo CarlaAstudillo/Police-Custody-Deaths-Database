@@ -29,8 +29,11 @@ gem 'shareable'
 
 gem 'will_paginate', '~> 3.0'
 
-
+# For searching
 gem "searchkick"
+
+#For elasticsearch
+gem 'tire'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

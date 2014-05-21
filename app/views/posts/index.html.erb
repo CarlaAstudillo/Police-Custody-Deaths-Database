@@ -1,43 +1,40 @@
-<div class="col-md-8 col-md-offset-2"><h1>Listing posts</h1>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date of Death</th>
-      <th>Police Agency</th>
-      <th>Place of Death</th>
-      <th>Gender</th>
-      <th>Date of Birth</th>
-      <th>Race</th>
-      <th>Manner of Death</th>
-      <th>Cause of Death</th>
-      <th>Offenses</th>
-    </tr>
-  </thead>
+    
 
-  <tbody>
+
+
+
+<ul class="isotope table-like">
+  <li>
+
+   <div class="head">Name</div>
+    <div class="head">Police Agency</div>
+    <div class="head">Manner of Death</div>
+    <div class="head">Date of Death</div>
+    <div class="head">Place</div>
+    <div class="head">Gender</div>
+  <div class="head">Date of Birth</div>
+    <div class="head">Race</div>
+  <div class="head">Cause of Death</div>
+  <div class="head">Offenses</div>
+
+
+
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= truncate(post.date_of_date, length:40) %></td>
-        <td><%= truncate(post.police_agency, length:40) %></td>
-        <td><%= truncate(post.place, length:40) %></td>
-        <td><%= truncate(post.gender, length:40) %></td>
-        <td><%= truncate(post.date_of_birth, length:40) %></td>
-        <td><%= truncate(post.race, length:40) %></td>
-        <td><%= truncate(post.manner_of_death, length:40) %></td>
-        <td><%= truncate(post.cause_of_death, length:40) %></td>
-        <td><%= truncate(post.offenses, length:40) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    
+  
+    
+    <%= render 'posts/post', post:post %>
 
-<br>
+ 
+</li>
 
-<%= link_to 'New Post', new_post_path %>
-</div>
+
+  
+
+
+<% end %>
+</ul>
+
+
+<%= will_paginate @posts %>

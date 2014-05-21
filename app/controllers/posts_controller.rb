@@ -6,6 +6,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    if params[:query].present?
+      @posts = Post.search(params[:query], page: params[:page], per_page: 10)
+    else
+      @posts = Post.all.page(params[:page]).order('created_at DESC').per_page(10)
+    end
 
   end
 
