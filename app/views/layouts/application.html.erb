@@ -40,6 +40,20 @@
   <%= link_to "Clear", posts_path %>
 <% end %>
 
+<div id="sorts" class="button-group">
+  <button class="button is-checked" data-sort-value="original-order">original order</button>
+  <button class="button" data-sort-value="name">Name</button>
+  <button class="button" data-sort-value="symbol">Police Agency</button>
+  <button class="button" data-sort-value="number">Manner of Death</button>
+  <button class="button" data-sort-value="weight">Date of Death</button>
+  <button class="button" data-sort-value="category">Place</button>
+  <button class="button" data-sort-value="gender">gender</button>
+  <button class="button" data-sort-value="date_of_birth">dob</button>
+  <button class="button" data-sort-value="race">race</button>
+  <button class="button" data-sort-value="cause_of_death">cause of death</button>
+   <button class="button" data-sort-value="offenses">offenses</button>
+
+</div>
 
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -62,20 +76,7 @@
           </ul>
         </li>
       </ul>
-      <div id="sorts" class="button-group">
-  <button class="button is-checked" data-sort-value="original-order">original order</button>
-  <button class="button" data-sort-value="name">Name</button>
-  <button class="button" data-sort-value="symbol">Police Agency</button>
-  <button class="button" data-sort-value="number">Manner of Death</button>
-  <button class="button" data-sort-value="weight">Date of Death</button>
-  <button class="button" data-sort-value="category">Place</button>
-  <button class="button" data-sort-value="gender">gender</button>
-  <button class="button" data-sort-value="date_of_birth">dob</button>
-  <button class="button" data-sort-value="race">race</button>
-  <button class="button" data-sort-value="cause_of_death">cause of death</button>
-   <button class="button" data-sort-value="offenses">offenses</button>
-
-</div>
+      
       
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -141,7 +142,17 @@
     });
   });
 
-  
+  // Instant Search
+  $('#query').keyup(function(){
+    $('.search_item').each(function(){
+      var re = new RegExp($('#query').val(), 'i')
+      if($(this).children('li.data-eac')[0].innerHTML.match(re)){
+        $(this).show();
+      }else{
+        $(this).hide();
+      };
+    });
+  });
 
   
 });
