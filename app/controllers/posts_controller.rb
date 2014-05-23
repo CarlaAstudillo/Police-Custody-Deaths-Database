@@ -7,9 +7,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     if params[:query].present?
-      @posts = Post.search(params[:query], page: params[:page], per_page: 10)
+      @posts = Post.search(params[:query], page: params[:page])
     else
-      @posts = Post.all.page(params[:page]).order('created_at DESC').per_page(10)
+      @posts = Post.all.page(params[:page])
     end
     
 

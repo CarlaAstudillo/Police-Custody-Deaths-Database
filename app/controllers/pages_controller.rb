@@ -5,8 +5,8 @@ class PagesController < ApplicationController
   end
 
   def welcome
-  	
-  	@posts = Post.page(params[:page]).order('created_at DESC').per_page(10)
+
+  	@posts = Post.page(params[:page]).order('created_at DESC')
 
   end
 

@@ -263,9 +263,15 @@ color: #919191; }
 }
 
 
+.btn-primary, .btn-primary:hover {
+  background-color: #990033;
+  border-color :#7A0029;
 
+}
 
- 
+ .row {
+  padding: 0 10px;
+ }
 
  form.form-inline {
   margin: 0;
@@ -276,6 +282,7 @@ text-align: center;
 
 form.form-inline a {
   padding-left:10px;
+  color: #7A0029;
  }
  .form-control {
   display: inline;
