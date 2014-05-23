@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.page(params[:page]).order('created_at DESC').per_page(10)
     end
+    
 
   end
 

@@ -30,30 +30,10 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <% # search form %>
-<%= form_tag posts_path, :class => 'form-inline', method: :get do %>
-<div class="form-group">
+    
+<%= link_to "Deaths in Police Custody Database", "/", class: "navbar-brand" %>
 
-  <%= text_field_tag "query", nil, :class => 'form-control' %>
-  <%= submit_tag "Search", :class => 'btn btn-primary' %>
-</div>
-  <%= link_to "Clear", posts_path %>
-<% end %>
 
-<div id="sorts" class="button-group">
-  <button class="button is-checked" data-sort-value="original-order">original order</button>
-  <button class="button" data-sort-value="name">Name</button>
-  <button class="button" data-sort-value="symbol">Police Agency</button>
-  <button class="button" data-sort-value="number">Manner of Death</button>
-  <button class="button" data-sort-value="weight">Date of Death</button>
-  <button class="button" data-sort-value="category">Place</button>
-  <button class="button" data-sort-value="gender">gender</button>
-  <button class="button" data-sort-value="date_of_birth">dob</button>
-  <button class="button" data-sort-value="race">race</button>
-  <button class="button" data-sort-value="cause_of_death">cause of death</button>
-   <button class="button" data-sort-value="offenses">offenses</button>
-
-</div>
 
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -63,7 +43,7 @@
       </button>
   
       
-       <%= link_to "Deaths in Police Custody Database", "/", class: "navbar-brand" %> 
+       
             
     </div>
 
@@ -81,7 +61,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<a name="anchor"></a>
+
     
       
 
@@ -97,65 +77,84 @@
 // init
 
 
+$( function() {
 
 
-
-
-
-
-     $( function() {
-
-     
-
+  // quick search regex
+  var qsRegex;
+  
   // init Isotope
   var $container = $('.isotope').isotope({
+    itemSelector: 'li',
     layoutMode: 'vertical',
-    getSortData: {
-      name: '.name',
-      symbol: '.symbol',
-      gender: '.gender',
-      date_of_birth: '.date_of_birth',
-      race: '.race',
-      cause_of_death: '.cause_of_death',
-      offenses: '.offenses',
-      number: '.number parseInt',
-      category: '.category',
-      weight: function( itemElem ) {
-        var weight = $( itemElem ).find('.weight').text();
-        return parseFloat( weight.replace( /[\(\)]/g, '') );
-      }
+    
+  });
+
+  var filterFns = {
+    // show if number is greater than 50
+    homicide: function() {
+      var name = $(this).find('.manner_of_death').text();
+      return name.match( /Homicide by law enforcement$/ );
+    },
+    // show if name ends with -ium
+    natural: function() {
+      var natural = $(this).find('.manner_of_death').text();
+      return natural.match( /^Natural/ );
+    },
+    delirium: function() {
+      var delirium = $(this).find('.manner_of_death').text();
+      var delirium = $(this).find('.cause_of_death').text();
+      return delirium.match( /^Excited delirium/ );
+    },
+    accident: function() {
+      var accident = $(this).find('.manner_of_death').text();
+      return accident.match( /^Accident/ );
+    },
+    suicide: function() {
+      var suicide = $(this).find('.manner_of_death').text();
+      return suicide.match( /^Suicide/ );
     }
+  };
+
+  console.log(filterFns)
+
+   // bind filter on select change
+  $('#filters').on( 'change', function() {
+    // get filter value from option value
+    var filterValue = this.value;
+
+    // use filterFn if matches value
+    filterValue = filterFns[ filterValue ] || filterValue;
+    $container.isotope({ filter: filterValue });
   });
 
-  // bind sort button click
-  $('#sorts').on( 'click', 'button', function() {
-    var sortValue = $(this).attr('data-sort-value');
-    $container.isotope({ sortBy: sortValue });
-  });
+  // use value of search field to filter
+  var $quicksearch = $('#query').keyup( debounce( function() {
+    qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+    $container.isotope({filter: function() {
+      return qsRegex ? $(this).text().match( qsRegex ) : true;
+    }});
 
-  // change is-checked class on buttons
-  $('.button-group').each( function( i, buttonGroup ) {
-    var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function() {
-      $buttonGroup.find('.is-checked').removeClass('is-checked');
-      $( this ).addClass('is-checked');
-    });
-  });
-
-  // Instant Search
-  $('#query').keyup(function(){
-    $('.search_item').each(function(){
-      var re = new RegExp($('#query').val(), 'i')
-      if($(this).children('li.data-eac')[0].innerHTML.match(re)){
-        $(this).show();
-      }else{
-        $(this).hide();
-      };
-    });
-  });
-
+  }) );
   
 });
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  return function debounced() {
+    if ( timeout ) {
+      clearTimeout( timeout );
+    }
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+    setTimeout( delayed, threshold || 100 );
+  }
+}
+
+ 
 
 </script>
 

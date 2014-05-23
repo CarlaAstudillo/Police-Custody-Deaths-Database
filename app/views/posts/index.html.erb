@@ -1,11 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
 
-    
+  
 
+  </head>
+  <body>
 
+  <div class="row">
+  <div class="col-md-4">
 
+<select id="filters" class="form-control">
+  <option value="*">Show all</option>
+  <option value="homicide">Homicide</option>
+  <option value="natural">Natural</option>
+  <option value="delirium">Excited Delirium</option>
+  <option value="accident">Accident</option>
+  <option value="suicide">Suicide</option>
+</select>
+
+</div>
+
+<div class="col-md-4">
+<%= form_tag posts_path, :class => 'form-inline', method: :get do %>
+<div class="form-group">
+
+  <%= text_field_tag "query", nil, :class => 'form-control' %>
+  <%= submit_tag "Search", :class => 'btn btn-primary' %>
+</div>
+  <%= link_to "Clear", posts_path %>
+<% end %>
+</div>
+</div>
 
 <ul class="isotope table-like">
-  <li>
+
+  <li class="headertext">
 
    <div class="head">Name</div>
     <div class="head">Police Agency</div>
@@ -17,24 +47,26 @@
     <div class="head">Race</div>
   <div class="head">Cause of Death</div>
   <div class="head">Offenses</div>
-
-
+</li>
 
     <% @posts.each do |post| %>
     
-  
+
     
     <%= render 'posts/post', post:post %>
 
  
-</li>
 
 
   
-
-
 <% end %>
+
 </ul>
 
 
+
 <%= will_paginate @posts %>
+</body>
+
+
+  </html>
