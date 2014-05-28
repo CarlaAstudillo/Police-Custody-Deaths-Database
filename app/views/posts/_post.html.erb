@@ -1,15 +1,15 @@
 
 
 <li class="data-each">
-
+<div class="manner_of_death2"><%= link_to post.manner_of_death, post %></div>
    <div class="name"><%= link_to post.name, post %></div>
    <div class="date_of_death"><%= link_to post.date_of_date, post %></div>
-   <div class="place"><%= link_to post.place, post %></div>
-   <div class="race"><%= link_to post.race, post %></div>
-    <div class="agency"><%= link_to post.police_agency, post %></div>
-    <div class="manner_of_death"><%= link_to post.manner_of_death, post %></div>
-  <div class="cause_of_death"><%= link_to post.cause_of_death, post %></div>
-  <div class="offenses"><%= link_to post.offenses, post %></div>
+   <div class="place" data-title="Place"><%= link_to post.place, post %></div>
+   <div class="race" data-title="Race or Ethnicity"><%= link_to post.race, post %></div>
+    <div class="agency" data-title="Police Agency"><%= link_to post.police_agency, post %></div>
+    <div class="manner_of_death" data-title="Manner of Death"><%= link_to post.manner_of_death, post %></div>
+  <div class="cause_of_death" data-title="Circumstances"><%= link_to post.cause_of_death, post %></div>
+  <div class="offenses" data-title="Offenses"><%= link_to post.offenses, post %></div>
 
 
  </li>

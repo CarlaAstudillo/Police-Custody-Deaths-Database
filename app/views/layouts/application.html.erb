@@ -51,8 +51,9 @@ Manner of Death
 
   <%= text_field_tag "query", nil, :class => 'form-control' %>
   <%= submit_tag "Search", :class => 'btn btn-primary' %>
-</div>
   <%= link_to "Clear", posts_path %>
+</div>
+  
 <% end %>
 </div>
 </div>
@@ -118,7 +119,6 @@ $( function() {
     }
   };
 
-  console.log(filterFns)
 
    // bind filter on select change
   $('#filters').on( 'change', function() {
