@@ -1,5 +1,7 @@
 Sandy::Application.routes.draw do
  
+  resources :users
+
   resources :posts
 
   get "about" => "pages#about"

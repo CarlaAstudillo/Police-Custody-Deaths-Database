@@ -1,15 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+<span class="glyphicon glyphicon-chevron-left"></span> <%= link_to "Back to Database", "/", class: "more_info_nav" %>
 <span class="pull-right"><%= simple_format post.police_agency %></span>
 
     <table>
   <div class="name_head"><%= link_to post.name, post %></div>
-  <span class="subtitle"><%= simple_format post.manner_of_death %></span>
+  <div class="manner_of_death"><%= simple_format post.manner_of_death %></div>
 <div class="table-responsive">
     <table class="table">
       <thead>
 <tr>
-  <th>Died on</th>
-  <th>Where event causing death occurred</th> 
+  <th>Date of Death</th>
+  <th>Place</th> 
   <th>Gender</th>
   <th>Born on</th>
   <th>Race</th>
@@ -97,14 +99,17 @@
   <% end %>
 
    <% if !post.link_to_press.blank? %>
-   <p><b>Link to press coverage:</b> <%= simple_format post.link_to_press %></p>
+   <p><b>Go to
+<%= link_to "press coverage", post.link_to_press, :class => "link_to_press" %></b></p>
+
    <% end %>
   
   
 
 </p>
+ 
 
+<%= twitter_button :via=> 'njdotcom', :text=> post.name + ' #PoliceCustodyDeaths' do %><i class="fa fa-twitter-square fa-2x"></i>
+<% end %>
 
-<%= render_shareable :buttons=> ['twitter'], :via=> 'njdotcom', :text=> post.name + ' #Appproject' %>
-</div>
 

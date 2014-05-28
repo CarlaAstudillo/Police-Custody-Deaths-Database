@@ -3,20 +3,17 @@
 <li class="data-each">
 
    <div class="name"><%= link_to post.name, post %></div>
-    <div class="symbol"><%= simple_format post.police_agency %></div>
-    <div class="manner_of_death"><%= simple_format post.manner_of_death %></div>
-    <div class="weight"><%= simple_format post.date_of_date %></div>
-    <div class="category"><%= simple_format post.place %></div>
-    <div class="gender"><%= simple_format post.gender %></div>
-  <div class="date_of_birth"><%= simple_format post.date_of_birth %></div>
-    <div class="race"><%= simple_format post.race %></div>
-  <div class="cause_of_death"><%= simple_format post.cause_of_death %></div>
-  <div class="offenses"><%= simple_format post.offenses %></div>
+   <div class="date_of_death"><%= link_to post.date_of_date, post %></div>
+   <div class="place"><%= link_to post.place, post %></div>
+   <div class="race"><%= link_to post.race, post %></div>
+    <div class="agency"><%= link_to post.police_agency, post %></div>
+    <div class="manner_of_death"><%= link_to post.manner_of_death, post %></div>
+  <div class="cause_of_death"><%= link_to post.cause_of_death, post %></div>
+  <div class="offenses"><%= link_to post.offenses, post %></div>
 
 
  </li>
 
 
-    
-
+   
  

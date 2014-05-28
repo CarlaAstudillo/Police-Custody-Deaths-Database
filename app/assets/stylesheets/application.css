@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-body { padding-top: 70px;
+body { padding-top: 0px;
 min-height: 1000px; 
   background-image: radial-gradient(center bottom, ellipse cover, #ffffff, #e9e9e9);
   background-image: -o-radial-gradient(center bottom, ellipse cover, #ffffff, #e9e9e9);
@@ -21,16 +21,29 @@ min-height: 1000px;
   background-image: -webkit-radial-gradient(center bottom, ellipse cover, #ffffff, #e9e9e9);
 }
 
+.navbar-default .navbar-brand {
+  color: #d2d2d2;
+}
+
 .navbar-fixed-top {background-color: #222;}
 
-a.navbar-brand {
-  font-size: 37px;
+#content a.more_info_nav {
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
+
+.row {
+  color: #f1f1f1;
+}
+
+
 
 .navbar {
   background-color: #222;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  
 
 }
 
@@ -69,11 +82,11 @@ float:left;
   
  }
 
-.name_head { font: 700 25px/0.5 'Oswald', Helvetica, sans-serif;
+.name_head { font: 700 29px/0.5 'Oswald', Helvetica, sans-serif;
 margin-top: 20px;
 text-transform: uppercase;
 margin-bottom: 10px;
-
+margin-top: 30px;
 line-height: 1.1;
 
   
@@ -240,25 +253,35 @@ float:left;
   padding: 4px 4px 1px 4px;
 }
 
-.table-like div { width: 10%; }
+.table-like div { width: 13.0%; }
+
+.table-like div.date_of_death { width: 7%; }
 
 .table-like li.data-each {
   position: relative;
 }
 
-.table-like .name a { font: 700 23px/0.5 'Oswald', Helvetica, sans-serif;
+.table-like li.data-each:hover, .table-like li.data-each:hover a, .table-like li.data-each:hover div  {
+
+  text-decoration: underline;
+}
+
+.table-like .name a { font: 700 20px/0.5 'Oswald', Helvetica, sans-serif;
 
 text-transform: uppercase;
 margin-bottom: 10px;
-
 line-height: 1.1;
 color: #919191; }
 
-.table-like .manner_of_death { color: #990033;
+.table-like a { color: #000;
+
+ }
+
+#content .manner_of_death, .table-like .manner_of_death a { color: #990033;
   font-weight: bold;
 
  }
-.head {
+.head, .headertext .date_of_death {
   font-weight: bolder;
 }
 
@@ -320,6 +343,11 @@ height: auto;
   
  }
 
+.link_to_press a {
+  margin-bottom: 50px;
+
+ }
+
 
 
 
@@ -347,7 +375,8 @@ nav.share {display:inline-block;} /* shareable's nav tag */
 nav.share div {float:left; overflow:hidden;}
 nav.share iframe {max-height:20px; border:0; margin-top:0; padding-top:0;} /* if using medium sized buttons */
 #___plusone_0 {max-width:70px; font-size: default; !important}
-.twitter-share-button, .twitter-count-horizontal {max-width:80px;}
+.twitter-share-button, .twitter-count-horizontal {max-width:80px;
+}
 .fb_iframe_widget span { vertical-align: top; }
 .fb_edge_widget_with_comment { vertical-align: top;}
 .fb-like{display:inline-block}

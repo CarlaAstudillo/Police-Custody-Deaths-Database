@@ -32,6 +32,9 @@ gem 'will_paginate', '~> 3.0'
 # For searching
 gem "searchkick"
 
+# For custom urls
+gem 'friendly_id', '~> 5.0.0'
+
 #For elasticsearch
 gem 'tire'
 
