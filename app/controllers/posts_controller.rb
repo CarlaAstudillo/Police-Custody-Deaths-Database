@@ -7,9 +7,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     if params[:query].present?
-      @posts = Post.search(params[:query], page: params[:page])
-    else
-      @posts = Post.all.page(params[:page])
+      @posts = Post.search(params[:query])
+ 
     end
     
 
