@@ -23,6 +23,93 @@
      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
 
+     <script>
+// init
+
+
+$(window).load(function(){
+
+
+
+
+  // quick search regex
+  var qsRegex;
+  
+  // init Isotope
+  var $container = $('.isotope').isotope({
+    itemSelector: 'li',
+    layoutMode: 'vertical',
+    
+  });
+
+  var filterFns = {
+    // show if number is greater than 50
+    homicide: function() {
+      var name = $(this).find('.manner_of_death').text();
+      return name.match( /Homicide by law enforcement$/ );
+    },
+    // show if name ends with -ium
+    natural: function() {
+      var natural = $(this).find('.manner_of_death').text();
+      return natural.match( /^Natural/ );
+    },
+    delirium: function() {
+      var delirium = $(this).find('.manner_of_death').text();
+      var delirium = $(this).find('.cause_of_death').text();
+      return delirium.match( /delirium/ );
+    },
+    accident: function() {
+      var accident = $(this).find('.manner_of_death').text();
+      return accident.match( /^Accident/ );
+    },
+    suicide: function() {
+      var suicide = $(this).find('.manner_of_death').text();
+      return suicide.match( /^Suicide/ );
+    }
+  };
+
+
+
+   // bind filter on select change
+  $('#filters').on( 'change', function() {
+    // get filter value from option value
+    var filterValue = this.value;
+
+    // use filterFn if matches value
+    filterValue = filterFns[ filterValue ] || filterValue;
+    $container.isotope({ filter: filterValue });
+  });
+
+  // use value of search field to filter
+  var $quicksearch = $('#query').keyup( debounce( function() {
+    qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+    $container.isotope({filter: function() {
+      return qsRegex ? $(this).text().match( qsRegex ) : true;
+    }});
+
+  }) );
+  
+});
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  return function debounced() {
+    if ( timeout ) {
+      clearTimeout( timeout );
+    }
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+    setTimeout( delayed, threshold || 100 );
+  }
+}
+
+ 
+
+</script>
+
 	</head>
 	<body>
 <div class="container-fluid">
@@ -73,92 +160,7 @@
   
 </div>
 
- <script>
-// init
 
-
-$( function() {
-
-
-  // quick search regex
-  var qsRegex;
-  
-  // init Isotope
-  var $container = $('.isotope').isotope({
-    itemSelector: 'li',
-    layoutMode: 'vertical',
-    
-  });
-
-  var filterFns = {
-    // show if number is greater than 50
-    homicide: function() {
-      var name = $(this).find('.manner_of_death').text();
-      return name.match( /Homicide by law enforcement$/ );
-    },
-    // show if name ends with -ium
-    natural: function() {
-      var natural = $(this).find('.manner_of_death').text();
-      return natural.match( /^Natural/ );
-    },
-    delirium: function() {
-      var delirium = $(this).find('.manner_of_death').text();
-      var delirium = $(this).find('.cause_of_death').text();
-      return delirium.match( /delirium/ );
-    },
-    accident: function() {
-      var accident = $(this).find('.manner_of_death').text();
-      return accident.match( /^Accident/ );
-    },
-    suicide: function() {
-      var suicide = $(this).find('.manner_of_death').text();
-      return suicide.match( /^Suicide/ );
-    }
-  };
-
-var eike = $(window).width();
-  console.log(eike)
-
-
-   // bind filter on select change
-  $('#filters').on( 'change', function() {
-    // get filter value from option value
-    var filterValue = this.value;
-
-    // use filterFn if matches value
-    filterValue = filterFns[ filterValue ] || filterValue;
-    $container.isotope({ filter: filterValue });
-  });
-
-  // use value of search field to filter
-  var $quicksearch = $('#query').keyup( debounce( function() {
-    qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-    $container.isotope({filter: function() {
-      return qsRegex ? $(this).text().match( qsRegex ) : true;
-    }});
-
-  }) );
-  
-});
-
-// debounce so filtering doesn't happen every millisecond
-function debounce( fn, threshold ) {
-  var timeout;
-  return function debounced() {
-    if ( timeout ) {
-      clearTimeout( timeout );
-    }
-    function delayed() {
-      fn();
-      timeout = null;
-    }
-    setTimeout( delayed, threshold || 100 );
-  }
-}
-
- 
-
-</script>
 
 
 
