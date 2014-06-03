@@ -3,15 +3,19 @@
 	<head>
 	  <title>Deaths in Police Custody</title>
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	 
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
+    
+
+    
     
     
    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1-rc2/jquery.min.js"></script>
+
+    <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700|Oswald' rel='stylesheet' type='text/css'>
 
 
@@ -21,94 +25,8 @@
     
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	  <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
 
-     <script>
-// init
-
-
-$(window).load(function(){
-
-
-
-
-  // quick search regex
-  var qsRegex;
-  
-  // init Isotope
-  var $container = $('.isotope').isotope({
-    itemSelector: 'li',
-    layoutMode: 'vertical',
-    
-  });
-
-  var filterFns = {
-    // show if number is greater than 50
-    homicide: function() {
-      var name = $(this).find('.manner_of_death').text();
-      return name.match( /Homicide by law enforcement$/ );
-    },
-    // show if name ends with -ium
-    natural: function() {
-      var natural = $(this).find('.manner_of_death').text();
-      return natural.match( /^Natural/ );
-    },
-    delirium: function() {
-      var delirium = $(this).find('.manner_of_death').text();
-      var delirium = $(this).find('.cause_of_death').text();
-      return delirium.match( /delirium/ );
-    },
-    accident: function() {
-      var accident = $(this).find('.manner_of_death').text();
-      return accident.match( /^Accident/ );
-    },
-    suicide: function() {
-      var suicide = $(this).find('.manner_of_death').text();
-      return suicide.match( /^Suicide/ );
-    }
-  };
-
-
-
-   // bind filter on select change
-  $('#filters').on( 'change', function() {
-    // get filter value from option value
-    var filterValue = this.value;
-
-    // use filterFn if matches value
-    filterValue = filterFns[ filterValue ] || filterValue;
-    $container.isotope({ filter: filterValue });
-  });
-
-  // use value of search field to filter
-  var $quicksearch = $('#query').keyup( debounce( function() {
-    qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-    $container.isotope({filter: function() {
-      return qsRegex ? $(this).text().match( qsRegex ) : true;
-    }});
-
-  }) );
-  
-});
-
-// debounce so filtering doesn't happen every millisecond
-function debounce( fn, threshold ) {
-  var timeout;
-  return function debounced() {
-    if ( timeout ) {
-      clearTimeout( timeout );
-    }
-    function delayed() {
-      fn();
-      timeout = null;
-    }
-    setTimeout( delayed, threshold || 100 );
-  }
-}
-
- 
-
-</script>
 
 	</head>
 	<body>
@@ -165,6 +83,100 @@ function debounce( fn, threshold ) {
 
 
 	</body>
+
+
+     <script>
+     $(document).ready(function() {
+
+$(window).load(function(){
+
+
+
+
+  // quick search regex
+  var qsRegex;
+  
+  // init Isotope
+  var $container = $('.isotope').isotope({
+    itemSelector: 'li',
+    layoutMode: 'vertical',
+    animationEngine : 'css',
+    containerStyle: { overflow:'scroll', position: 'relative'},
+    resizesContainer: false
+    
+  });
+
+
+  var filterFns = {
+    // show if number is greater than 50
+    homicide: function() {
+      var name = $(this).find('.manner_of_death').text();
+      return name.match( /Homicide by law enforcement$/ );
+    },
+    // show if name ends with -ium
+    natural: function() {
+      var natural = $(this).find('.manner_of_death').text();
+      return natural.match( /^Natural/ );
+    },
+    delirium: function() {
+      var delirium = $(this).find('.manner_of_death').text();
+      var delirium = $(this).find('.cause_of_death').text();
+      return delirium.match( /delirium/ );
+    },
+    accident: function() {
+      var accident = $(this).find('.manner_of_death').text();
+      return accident.match( /^Accident/ );
+    },
+    suicide: function() {
+      var suicide = $(this).find('.manner_of_death').text();
+      return suicide.match( /^Suicide/ );
+    }
+  };
+
+
+
+   // bind filter on select change
+  $('#filters').on( 'change', function() {
+    // get filter value from option value
+    var filterValue = this.value;
+
+    // use filterFn if matches value
+    filterValue = filterFns[ filterValue ] || filterValue;
+    $container.isotope({ filter: filterValue });
+  });
+
+  // use value of search field to filter
+  var $quicksearch = $('#query').keyup( debounce( function() {
+    qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+    $container.isotope({filter: function() {
+      return qsRegex ? $(this).text().match( qsRegex ) : true;
+    }});
+
+  }) );
+  
+
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  return function debounced() {
+    if ( timeout ) {
+      clearTimeout( timeout );
+    }
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+    setTimeout( delayed, threshold || 100 );
+  }
+}
+
+});
+
+});
+
+
+</script>
   
   
 	</html>

@@ -154,6 +154,7 @@ body {
 
 .isotope {
   background: #F5F5F5;
+  height:300px;
   
 
   
@@ -172,7 +173,9 @@ ul.isotope.table-like {
 
 .isotope .table-like {
   overflow-y:scroll;
-  height:500px;
+  height:200px;
+  width: 100%;
+  position: absolute;
 }
 
 /* ---- vertical table-like ---- */
