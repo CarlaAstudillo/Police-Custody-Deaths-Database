@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-body { padding-top: 0px; 
+body { padding-top: 65px; 
   background-image: radial-gradient(center bottom, ellipse cover, #ffffff, #e9e9e9);
   background-image: -o-radial-gradient(center bottom, ellipse cover, #ffffff, #e9e9e9);
   background-image: -ms-radial-gradient(center bottom, ellipse cover, #ffffff, #e9e9e9);
@@ -155,6 +155,7 @@ body {
 .isotope {
   background: #F5F5F5;
   height:300px;
+  border: red 3px solid;
   
 
   
@@ -176,6 +177,7 @@ ul.isotope.table-like {
   height:200px;
   width: 100%;
   position: absolute;
+  border: green 3px solid;
 }
 
 /* ---- vertical table-like ---- */
@@ -217,7 +219,10 @@ float:left;
 
 .table-like div { width: 13.0%; }
 
-.table-like div.date_of_death { width: 7%; }
+.table-like div.date_of_death { width: 7.0%; 
+font-size: 13px;
+display: inline;
+word-wrap: break-word; }
 
 .table-like li.data-each {
   position: relative;
@@ -294,7 +299,7 @@ color: #919191; }
  /* responsive table */
         @media screen and (max-width: 768px) {
           body {
-            padding-top: 190px;
+            padding-top: 70px;
 
           }
 
@@ -314,7 +319,7 @@ div.form-group {
 .table-like li.data-each
             {
                width: 100% !important;
-   padding: 12px;
+   padding: 0px;
 font: 400 14px/0.5 'News Cycle', Helvetica, sans-serif;
 line-height: 1.3;
 height: auto;
@@ -328,9 +333,10 @@ float: left;
             line-height: 1.3;
              }
 
-             .table-like .name {
+             .table-like .name a{
   font: 400 15px/0.5 'News Cycle', Helvetica, sans-serif;
             line-height: 1.3;
+            font-weight:bold;
 }
 
 #content .fullpost {
@@ -343,7 +349,7 @@ float: left;
         @media screen and (max-width: 500px) {
 
           body {
-            padding-top: 190px;
+            padding-top: 70px;
 
           }
            
