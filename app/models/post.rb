@@ -3,4 +3,6 @@ class Post < ActiveRecord::Base
 	extend ::FriendlyId 
 	friendly_id :name, use: :slugged 
 	validates :name, uniqueness: true
+	include Tire::Model::Search
+	include Tire::Model::Callbacks
 end
