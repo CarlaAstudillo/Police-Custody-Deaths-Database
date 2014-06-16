@@ -12,7 +12,6 @@ group :production do
 	gem 'pg'
 end
 
-gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
