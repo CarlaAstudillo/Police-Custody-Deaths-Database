@@ -9,7 +9,7 @@ gem 'sqlite3'
 end
 # Use posgres as the database for Active Record in heroku
 group :production do 
-	gem 'pg'
+	gem 'pg', '0.15.1'
 end
 
 
@@ -36,7 +36,7 @@ gem "searchkick"
 # For custom urls
 gem 'friendly_id', '~> 5.0.0'
 
-#For elasticsearch
+#For elasticsearch on heroku
 gem 'tire'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
