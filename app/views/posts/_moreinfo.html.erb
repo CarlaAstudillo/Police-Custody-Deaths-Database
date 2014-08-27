@@ -13,7 +13,7 @@
   <th>Date of Death</th>
   <th>Place</th> 
   <th>Gender</th>
-  <th>Born on</th>
+  <th>Born on/Age</th>
   <th>Race</th>
   <th>Cause of Death</th>
   <th>Offenses</th>
@@ -100,7 +100,7 @@
 
    <% if !post.link_to_press.blank? %>
    <p><b>Read more about this case
-<%= link_to " here", post.link_to_press, :class => "link_to_press" %></b></p>
+<%= link_to " here", post.link_to_press, :class => "link_to_press", :target => "_blank" %></b></p>
 
    <% end %>
   

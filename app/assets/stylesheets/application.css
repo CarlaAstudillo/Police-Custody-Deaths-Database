@@ -47,6 +47,16 @@ body { padding-top: 65px;
 
 }
 
+.col-md-6 {
+  padding: 10px 40px;
+}
+
+.col-md-6 a {
+  color: #990033;
+  text-decoration: underline;
+}
+
+
 
 
 #content {
