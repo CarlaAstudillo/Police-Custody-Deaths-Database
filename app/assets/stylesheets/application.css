@@ -134,6 +134,10 @@ line-height: 1.1;
                 font-weight: bold;
             }
 
+            .col-md-6 {
+  display:none;
+}
+
             table td {
                 border: none;
                 margin-bottom: 6px;
