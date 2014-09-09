@@ -350,7 +350,9 @@ height: auto;
 
           }
            
-
+#content .fullpost {
+  margin-top: 5px;
+}
             
 
             .table-like .headertext { display: none; }
