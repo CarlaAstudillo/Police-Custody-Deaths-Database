@@ -218,7 +218,7 @@ float:left;
 .table-like div { width: 13.0%; }
 
 .table-like div.date_of_death { width: 7.0%; 
-font-size: 13px;
+font-size: 15px;
 display: inline;
 word-wrap: break-word; }
 
@@ -256,7 +256,7 @@ color: #919191; }
         
 
 #content .fullpost {
-  margin-top: 23px;
+  margin-top: 0px;
 }
 
 
@@ -272,7 +272,7 @@ color: #919191; }
 
           
 #content .fullpost {
-  margin-top: 35px;
+  margin-top: 0px;
 }
 
 
@@ -283,7 +283,7 @@ color: #919191; }
  /* responsive table */
         @media screen and (max-width: 768px) {
           body {
-margin-top: 93px;
+margin-top: -25px;
           }
 
           
