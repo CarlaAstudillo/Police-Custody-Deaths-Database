@@ -40,11 +40,13 @@
 <select id="filters" class="form-control">
 
   <option value="*">Show all</option>
-  <option value="homicide">Homicide</option>
+  <option value="homicide">Homicide by law enforcement</option>
   <option value="natural">Natural</option>
   <option value="delirium">Excited Delirium</option>
   <option value="accident">Accident</option>
   <option value="suicide">Suicide</option>
+  <option value="unknown">Unknown</option>
+
 </select>
 
 </div>
@@ -111,20 +113,19 @@ $(window).load(function(){
 
 
   var filterFns = {
-    // show if number is greater than 50
     homicide: function() {
       var name = $(this).find('.manner_of_death').text();
       return name.match( /Homicide by law enforcement$/ );
     },
-    // show if name ends with -ium
     natural: function() {
       var natural = $(this).find('.manner_of_death').text();
       return natural.match( /^Natural/ );
     },
     delirium: function() {
       var delirium = $(this).find('.manner_of_death').text();
-      var delirium = $(this).find('.cause_of_death').text();
-      return delirium.match( /delirium/ );
+      
+      return delirium.match( /(delirium)|(Unknown+[*])|(Homicide by law enforcement+[*])/ );
+
     },
     accident: function() {
       var accident = $(this).find('.manner_of_death').text();
@@ -133,6 +134,10 @@ $(window).load(function(){
     suicide: function() {
       var suicide = $(this).find('.manner_of_death').text();
       return suicide.match( /^Suicide/ );
+    },
+    unknown: function() {
+      var unknown = $(this).find('.manner_of_death').text();
+      return unknown.match( /^Unknown/ );
     }
   };
 
@@ -176,9 +181,7 @@ function debounce( fn, threshold ) {
 
 });
 
-var eike = $(window).width(); 
 
-console.log(eike)
 
 });
 
